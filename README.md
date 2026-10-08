@@ -131,7 +131,7 @@ Para cada série saem dois gráficos, cada um em versão larga e de celular:
 
 Para ver os gráficos antes da conferência, rode a tarefa **Comparativo: gerar
 prévia (não publicar)** ou `python analise_comparativo.py --previa`. Ela aceita
-linhas com `validada=nao`, grava em `previa/` (fora do controle de versão) e
+linhas com `validada=nao`, grava em `previa/` (versionada só para revisão interna) e
 marca cada imagem com "PRÉVIA — DADOS NÃO CONFERIDOS — NÃO PUBLICAR". Todas as
 outras validações continuam valendo.
 
