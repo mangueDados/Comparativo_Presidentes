@@ -1,0 +1,64 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Comparativo: verificar ambiente",
+      "type": "process",
+      "command": "${command:python.interpreterPath}",
+      "args": [
+        "analise_comparativo.py",
+        "--check-env"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Comparativo: executar testes",
+      "type": "process",
+      "command": "${command:python.interpreterPath}",
+      "args": [
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Comparativo: gerar prévia (não publicar)",
+      "type": "process",
+      "command": "${command:python.interpreterPath}",
+      "args": [
+        "analise_comparativo.py",
+        "--input",
+        "dados/indicadores.csv",
+        "--previa"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Comparativo: gerar gráficos",
+      "type": "process",
+      "command": "${command:python.interpreterPath}",
+      "args": [
+        "analise_comparativo.py",
+        "--input",
+        "dados/indicadores.csv",
+        "--output",
+        "saida"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Conferência: verificar e gerar planilha",
+      "type": "shell",
+      "command": "${command:python.interpreterPath} conferencia/verificar.py && ${command:python.interpreterPath} conferencia/planilha.py",
+      "problemMatcher": []
+    }
+  ]
+}
